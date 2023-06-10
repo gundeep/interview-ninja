@@ -28,18 +28,14 @@ export default observer(() => {
             </div>
             <div className="content">
                 <div style={{ fontSize: '70px', fontWeight: '600' }}>
-                    Congratulations
+                    Welcome to Beyond Resume
                 </div>
                 <div className="attester">
-                    <div style={{ marginRight: '12px' }}>
-                        You have created a new UniRep attester{' '}
-                    </div>
-                    <Tooltip text="Attesters define their own data systems and are able to attest to users, giving them data." />
                 </div>
                 <p>
-                    Clicking 'Join' adds a user to this attester's membership
-                    group.
+                    Creating an account will allow you to attest changes in your resume and generate a proof of that. <Tooltip text="Attesters define their own data systems and are able to attest to users, giving them data." />
                 </p>
+
                 <div className="join">
                     {!userContext.hasSignedUp ? (
                         <Button
@@ -48,7 +44,7 @@ export default observer(() => {
                                 return userContext.signup()
                             }}
                         >
-                            {userContext.userState ? 'Join' : 'Initializing...'}
+                            {userContext.userState ? 'Create Account' : 'Initializing...'}
                             <span style={{ marginLeft: '12px' }}>
                                 <img
                                     src={require('../../public/arrow.svg')}
@@ -80,14 +76,6 @@ export default observer(() => {
                         </div>
                     )}
                 </div>
-                <p>
-                    After joining, the member can interact with data in the
-                    attester's application.{' '}
-                </p>
-                <p>
-                    Customize this landing page to onboard new users to your
-                    app.
-                </p>
             </div>
         </>
     )

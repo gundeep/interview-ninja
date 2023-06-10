@@ -293,12 +293,6 @@ export default observer(() => {
                                                 <input
                                                     value={reqData[i] ?? ''}
                                                     onChange={(event) => {
-                                                        if (
-                                                            !/^\d*$/.test(
-                                                                event.target.value
-                                                            )
-                                                        )
-                                                            return
                                                         setReqData(() => ({
                                                             ...reqData,
                                                             [i]: event.target.value,
@@ -479,7 +473,8 @@ export default observer(() => {
                                 }}
                             >
                                 Generate Proof
-                            </Button>
+                            </Button>    
+
                         </div>
                         {repProof.proof.length ? (
                             <>
@@ -492,12 +487,18 @@ export default observer(() => {
                                             : repProof.valid.toString()}
                                     </span>
                                 </div>
-                                <textarea
+                                {/* <textarea
                                     readOnly
                                     value={JSON.stringify(repProof, null, 2)}
-                                />
+                                /> */}
                             </>
                         ) : null}
+                            <Button
+                                onClick={() => {
+                                    window.open("https://www.figma.com/file/x7TfJCRT7x7K4soEyNV45v/CV-%2F-Resume-(Community)?type=design&node-id=0%3A1&t=Nz0NYq1VFv43vKl0-1", "_blank");
+                                  }}>
+                            Create Resume
+                            </Button>
                     </div>
                 </div>
             </div>

@@ -43,12 +43,20 @@ template DataProof(STATE_TREE_DEPTH, FIELD_COUNT, SUM_FIELD_COUNT) {
     /* End of check 1 */
 
      /* 2. Check if user data more than given value */
+     /* 2.1. Compute sum of data */
+    // component sum = Sum(SUM_FIELD_COUNT);
+    // for (var x = 0; x < SUM_FIELD_COUNT; x++) {
+    //     sum.in[x].in <== data[x];
+    // }
+
     component get[SUM_FIELD_COUNT];
     for (var x = 0; x < SUM_FIELD_COUNT; x++) {
         get[x] = GreaterEqThan(252);
         get[x].in[0] <== data[x];
-        get[x].in[1] <== value[x]; 
+        get[x].in[1] ==> value[x]; 
         get[x].out === 1;
     }
+
+    
     /* End of check 2 */
 }

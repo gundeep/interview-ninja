@@ -6,9 +6,8 @@ export default () => {
     return (
         <>
             <div className="header">
-                <img src={require('../../public/InterviewNinja.svg')} alt="UniRep logo" />
-                <div>powered by</div>
                 <img src={require('../../public/logo.svg')} alt="UniRep logo" />
+                <img src={require('../../public/2.svg')} width="200" height= "200"/>
                 <div className="links">
                     {/* <a href="https://developer.unirep.io/" target="blank">
           Docs
