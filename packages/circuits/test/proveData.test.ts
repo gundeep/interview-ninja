@@ -85,7 +85,7 @@ const genProofAndVerify = async (
 }
 
 describe('Prove data in Unirep App', function () {
-    this.timeout(300000)
+    this.timeout(000)
 
     it('should generate a data proof', async () => {
         const id = new Identity()

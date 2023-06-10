@@ -71,7 +71,7 @@ textarea {
 
 .action-container {
     height: fit-content;
-    border: 1px solid black;
+    border: 1px solid rgb(174, 36, 36);
     border-radius: 8px;
     padding: 16px 16px 30px;
     margin: 0 0 20px 20px;
@@ -91,12 +91,12 @@ textarea {
     cursor: pointer;
 }
 
-/* .story {
+.story {
   margin: 4px 0px;
 }
 
 .end-divider {
-  color: gray;
+  color: rgb(11, 204, 182);
   text-align: center;
   margin: 5px 0px;
   border: 1px solid gray;
@@ -109,6 +109,6 @@ textarea {
   }
 
   to {
-    background: rgba(0, 0, 0, 0);
+    background: rgba(66, 25, 171, 0.742);
   }
-} */
+} 

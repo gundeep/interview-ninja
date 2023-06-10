@@ -59,7 +59,7 @@ export default observer(() => {
 
     return (
         <div>
-            <h1>Dashboard</h1>
+            <h1>Resume Attestor</h1>
             <div className="container">
                 <div className="info-container">
                     <div className="info-item">
@@ -93,15 +93,38 @@ export default observer(() => {
                     </div>
                     {userContext.data.map((data, i) => {
                         if (i < userContext.sumFieldCount) {
-                            return (
-                                <div key={i} className="info-item">
-                                    <div>Data {i}</div>
-                                    <div className="stat">
-                                        {(data || 0).toString()}
+                            if (i === 0) {
+                                return (
+                                    <div key={i} className="info-item">
+                                        <div>Hackathons</div>
+                                        <div className="stat">
+                                            {(data || 0).toString()}
+                                        </div>
                                     </div>
-                                </div>
-                            )
-                        } else {
+                                )
+                            } else if (i === 1) {
+                                return (
+                                    <div key={i} className="info-item">
+                                        <div>Conferences</div>
+                                        <div className="stat">
+                                            {(data || 0).toString()}
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            else if (i === 2) {
+                                return (
+                                    <div key={i} className="info-item">
+                                        <div>References</div>
+                                        <div className="stat">
+                                            {(data || 0).toString()}
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        }
+
+                        else {
                             return (
                                 <div key={i} className="info-item">
                                     <div>Data {i}</div>
@@ -123,18 +146,39 @@ export default observer(() => {
                     </div>
                     {userContext.provableData.map((data, i) => {
                         if (i < userContext.sumFieldCount) {
-                            return (
-                                <div key={i} className="info-item">
-                                    <div>Data {i}</div>
-                                    <div className="stat">
-                                        {(data || 0).toString()}
+                            if (i === 0) {
+                                return (
+                                    <div key={i} className="info-item">
+                                        <div>Hackathons</div>
+                                        <div className="stat">
+                                            {(data || 0).toString()}
+                                        </div>
                                     </div>
-                                </div>
-                            )
+                                )
+                            } else if (i === 1) {
+                                return (
+                                    <div key={i} className="info-item">
+                                        <div>Conferences</div>
+                                        <div className="stat">
+                                            {(data || 0).toString()}
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            else if (i === 2) {
+                                return (
+                                    <div key={i} className="info-item">
+                                        <div>References</div>
+                                        <div className="stat">
+                                            {(data || 0).toString()}
+                                        </div>
+                                    </div>
+                                )
+                            }
                         } else {
                             return (
                                 <div key={i} className="info-item">
-                                    <div>Data {i}</div>
+                                    <div>Hackathons {i}</div>
                                     <div className="stat">
                                         {(
                                             data % BigInt(2 ** 206) || 0
@@ -149,7 +193,7 @@ export default observer(() => {
                 <div style={{ display: 'flex' }}>
                     <div className="action-container">
                         <div className="icon">
-                            <h2>Change Data</h2>
+                            <h2>Update Resume</h2>
                             <Tooltip text="You can request changes to data here. The demo attester will freely change your data." />
                         </div>
                         <div
@@ -163,30 +207,112 @@ export default observer(() => {
                                 userContext.userState.sync.settings.fieldCount
                             )
                                 .fill(0)
-                                .map((_, i) => {
-                                    return (
-                                        <div key={i} style={{ margin: '4px' }}>
-                                            <p>
-                                                Data {i} ({fieldType(i)})
-                                            </p>
-                                            <input
-                                                value={reqData[i] ?? ''}
-                                                onChange={(event) => {
-                                                    if (
-                                                        !/^\d*$/.test(
-                                                            event.target.value
+                                .map((_, i) => {  
+                                    if ( i === 0)
+                                    {
+                                        return (
+                                            <div key={i} style={{ margin: '4px' }}>
+                                                <p>
+                                                    Hackathons
+                                                </p>
+                                                <input
+                                                    value={reqData[i] ?? ''}
+                                                    onChange={(event) => {
+                                                        if (
+                                                            !/^\d*$/.test(
+                                                                event.target.value
+                                                            )
                                                         )
-                                                    )
-                                                        return
-                                                    setReqData(() => ({
-                                                        ...reqData,
-                                                        [i]: event.target.value,
-                                                    }))
-                                                }}
-                                            />
-                                        </div>
-                                    )
-                                })}
+                                                            return
+                                                        setReqData(() => ({
+                                                            ...reqData,
+                                                            [i]: event.target.value,
+                                                        }))
+                                                    }}
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                    else if ( i === 1)
+                                    {
+                                        return (
+                                            <div key={i} style={{ margin: '4px' }}>
+                                                <p>
+                                                    Conferences
+                                                </p>
+                                                <input
+                                                    value={reqData[i] ?? ''}
+                                                    onChange={(event) => {
+                                                        if (
+                                                            !/^\d*$/.test(
+                                                                event.target.value
+                                                            )
+                                                        )
+                                                            return
+                                                        setReqData(() => ({
+                                                            ...reqData,
+                                                            [i]: event.target.value,
+                                                        }))
+                                                    }}
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                    else if ( i === 2)
+                                    {
+                                        return (
+                                            <div key={i} style={{ margin: '4px' }}>
+                                                <p>
+                                                    References
+                                                </p>
+                                                <input
+                                                    value={reqData[i] ?? ''}
+                                                    onChange={(event) => {
+                                                        if (
+                                                            !/^\d*$/.test(
+                                                                event.target.value
+                                                            )
+                                                        )
+                                                            return
+                                                        setReqData(() => ({
+                                                            ...reqData,
+                                                            [i]: event.target.value,
+                                                        }))
+                                                    }}
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                    else if ( i === 3)
+                                    {
+                                        return (
+                                            <div key={i} style={{ margin: '4px' }}>
+                                                <p>
+                                                    Resume Text
+                                                </p>
+                                                <input
+                                                    value={reqData[i] ?? ''}
+                                                    onChange={(event) => {
+                                                        if (
+                                                            !/^\d*$/.test(
+                                                                event.target.value
+                                                            )
+                                                        )
+                                                            return
+                                                        setReqData(() => ({
+                                                            ...reqData,
+                                                            [i]: event.target.value,
+                                                        }))
+                                                    }}
+                                                />
+                                            </div>
+                                        )
+                                    }
+
+                                    }                                  
+                                    
+                                
+                                )}
                         </div>
                         <div className="icon">
                             <p style={{ marginRight: '8px' }}>
@@ -262,30 +388,87 @@ export default observer(() => {
                             userContext.userState.sync.settings.sumFieldCount
                         )
                             .fill(0)
-                            .map((_, i) => {
-                                return (
-                                    <div key={i} style={{ margin: '4px' }}>
-                                        <p>
-                                            Data {i} ({fieldType(i)})
-                                        </p>
-                                        <input
-                                            value={proveData[i] ?? '0'}
-                                            onChange={(event) => {
-                                                if (
-                                                    !/^\d*$/.test(
-                                                        event.target.value
+                            .map((_, i) => {   
+                                if ( i === 0)
+                                {
+                                    return (
+                                        <div key={i} style={{ margin: '4px' }}>
+                                            <p>
+                                                Hackathons
+                                            </p>
+                                            <input
+                                                value={proveData[i] ?? '0'}
+                                                onChange={(event) => {
+                                                    if (
+                                                        !/^\d*$/.test(
+                                                            event.target.value
+                                                        )
                                                     )
-                                                )
-                                                    return
-                                                setProveData(() => ({
-                                                    ...proveData,
-                                                    [i]: event.target.value,
-                                                }))
-                                            }}
-                                        />
-                                    </div>
-                                )
-                            })}
+                                                        return
+                                                    setProveData(() => ({
+                                                        ...proveData,
+                                                        [i]: event.target.value,
+                                                    }))
+                                                }}
+                                            />
+                                        </div>
+                                    )
+                                }   
+                                if ( i === 1)
+                                {
+                                    return (
+                                        <div key={i} style={{ margin: '4px' }}>
+                                            <p>
+                                                Conference 
+                                            </p>
+                                            <input
+                                                value={proveData[i] ?? '0'}
+                                                onChange={(event) => {
+                                                    if (
+                                                        !/^\d*$/.test(
+                                                            event.target.value
+                                                        )
+                                                    )
+                                                        return
+                                                    setProveData(() => ({
+                                                        ...proveData,
+                                                        [i]: event.target.value,
+                                                    }))
+                                                }}
+                                            />
+                                        </div>
+                                    )
+                                }
+                                if ( i === 2)
+                                {
+                                    return (
+                                        <div key={i} style={{ margin: '4px' }}>
+                                            <p>
+                                                References
+                                            </p>
+                                            <input
+                                                value={proveData[i] ?? '0'}
+                                                onChange={(event) => {
+                                                    if (
+                                                        !/^\d*$/.test(
+                                                            event.target.value
+                                                        )
+                                                    )
+                                                        return
+                                                    setProveData(() => ({
+                                                        ...proveData,
+                                                        [i]: event.target.value,
+                                                    }))
+                                                }}
+                                            />
+                                        </div>
+                                    )
+
+                                }                  
+
+                            }
+                            
+                            )}
                         <div style={{ margin: '20px 0 20px' }}>
                             <Button
                                 onClick={async () => {
