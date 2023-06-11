@@ -26,6 +26,7 @@ export default observer(() => {
                     alt="hummingbird at a flower"
                 />
             </div>
+            
             <div className="content">
                 <div style={{ fontSize: '70px', fontWeight: '600' }}>
                     Welcome to Beyond Resume

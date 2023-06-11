@@ -42,6 +42,6 @@ export async function deployApp() {
   `
     const configPath = path.join(__dirname, '../../../config.ts')
     await fs.promises.writeFile(configPath, config)
-
+    
     console.log(`Config written to ${configPath}`)
 }

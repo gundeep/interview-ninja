@@ -375,7 +375,7 @@ export default observer(() => {
 
                     <div className="action-container">
                         <div className="icon">
-                            <h2>Prove Data</h2>
+                            <h2>Verify Resume</h2>
                             <Tooltip text="Users can prove they control some amount of data without revealing exactly how much they control." />
                         </div>
                         {Array(
